@@ -1,0 +1,25 @@
+---
+- name: restart dnsmasq
+  service:
+    name: "{{ dnsmasq_daemon }}@{{item}}"
+    state: restarted
+  with_items: "{{dnsmasq_conf_listen}}"
+
+- name: reload dnsmasq
+  service:
+    name: "{{ dnsmasq_daemon }}@{{item}}"
+    state: reloaded
+  with_items: "{{dnsmasq_conf_listen}}"
+
+- name: start dnsmasq
+  service:
+    name: "{{ dnsmasq_daemon }}@{{item}}"
+    state: started
+  with_items: "{{dnsmasq_conf_listen}}"
+
+- name: stop dnsmasq
+  service:
+    name: "{{ dnsmasq_daemon }}@{{item}}"
+    state: stopped
+  with_items: "{{dnsmasq_conf_listen}}"
+

@@ -1,0 +1,12 @@
+---
+- name: Create global resolv.conf file
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolvconf/resolv.conf.d/head
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload dnsmasq
+
+- name: Start systemd-start-resolvconf
+  command: /sbin/resolvconf -u
