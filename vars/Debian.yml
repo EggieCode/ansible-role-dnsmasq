@@ -6,4 +6,3 @@ dnsmasq_packages:
     state: latest
   resolvconf:
     state: latest
-
