@@ -1,7 +1,7 @@
 ---
 - name: Control if the role is supported on this system
   fail: msg="Dnsmasq role is not supported on this system"
-  when: >
+  when: |
      ansible_distribution != 'Ubuntu' and 
      ansible_distribution != 'CentOS' and 
      ansible_distribution != 'Debian' and 
